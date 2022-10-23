@@ -4,7 +4,7 @@ const {ObjectId} = require ('mongodb')
 
 //init app and middleware
 const app = express()
-app.use(express.json)
+app.use(express.json())
 
 // db connection
 let db 
@@ -20,11 +20,16 @@ connectToDb((err)=>{
 
 // routers
 app.get('/Catalogo', (req, res) => {
+  const page = req.query.p || 0
+  const viajesPorPagina = 2
+  
   let viajes = []
     db.collection('Catalogo')
 
   .find() // returns cursor, no parameter return all, parameter filters results
-  .sort({contacto: 1}) 
+  .sort({contacto: 1})
+  .skip(page * viajesPorPagina)
+  .limit(viajesPorPagina) 
   .forEach(viaje=> viajes.push(viaje))
   .then(()=>{
     res.status(200).json(viajes)
@@ -35,6 +40,7 @@ app.get('/Catalogo', (req, res) => {
 })
 
 app.get('/Catalogo/:id', (req,res)=> {
+  
   
     if(ObjectId.isValid(req.params.id)){
         db.collection('Catalogo')
@@ -51,7 +57,7 @@ app.get('/Catalogo/:id', (req,res)=> {
   
 
 
-    app.post('/Catalogo',(req,res)=> {
+    app.post('/Catalogo',(req, res)=> {
     const viaje = req.body
 
     db.collection('Catalogo')
@@ -64,6 +70,40 @@ app.get('/Catalogo/:id', (req,res)=> {
         })
     })
 
+    app.delete('/Catalogo/:id',(req,res)=>{
+      
+      if(ObjectId.isValid(req.params.id)){
+        db.collection('Catalogo')
+        .deleteOne({_id: ObjectId(req.params.id)})
+        .then(result => {
+          res.status(200).json(result)
+        })
+        .catch(err=>{
+          res.status(500).json({err: ' couldnt delete the document'})
+        })
+    }else{
+        res.status(500).json({err: 'Not valid doc id'})
+    }
+    })
 
-})
+
+    app.patch('/Catalogo/:id', (req,res) =>{
+      const updates = req.body
+
+      if(ObjectId.isValid(req.params.id)){
+        db.collection('Catalogo')
+        .updateOne({_id: ObjectId(req.params.id)},{$set:updates})
+        .then(result => {
+          res.status(200).json(result)
+        })
+        .catch(err=>{
+          res.status(500).json({error: ' couldnt update the document'})
+        })
+    }else{
+        res.status(500).json({error: 'Not valid doc id'})
+    }
+    })
+  })
+
+
 
