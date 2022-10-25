@@ -33,6 +33,18 @@ router.route('/:id').get((req,res)=>{
     .catch(err => res.status(400).json('Error: '+err))
 })
 
+router.route('/:travel').get((req,res)=>{
+    Blog.findById(req.params.travel)
+    .then(post => res.json(post))
+    .catch(err => res.status(400).json('Error: '+err))
+})
+
+router.route('/:userName').get((req,res)=>{
+    Blog.findById(req.params.userName)
+    .then(post => res.json(post))
+    .catch(err => res.status(400).json('Error: '+err))
+})
+
 router.route('/:id').delete((req, res)=>{
     Blog.findByIdAndDelete(req.params.id)
     .then(()=> res.json('Post deleted'))
