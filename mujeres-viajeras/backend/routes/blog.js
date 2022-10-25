@@ -42,11 +42,11 @@ router.route('/:id').delete((req, res)=>{
 router.route('/update/:id').post((req,res)=>{
     Blog.findById(req.params.id)
     .then(post=>{
-        post.userName = req.body.userName;
-        post.travel = req.body.travel;
-        post.rating = req.body.rating;
-        post.likes = req.body.likes;
-        post.comments = req.body.comments;
+        post.userName = req.body.userName? req.body.userName: post.userName;
+        post.travel = req.body.travel? req.body.travel: post.travel; 
+        post.rating = req.body.rating?req.body.rating: post.rating;
+        post.likes = req.body.likes?req.body.likes:post.likes;
+        post.comments = req.body.comments?req.body.comments:post.comments;
 
         post.save()
         .then (()=> res.json('post updated'))

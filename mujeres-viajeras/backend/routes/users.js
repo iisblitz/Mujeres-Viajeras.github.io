@@ -55,17 +55,17 @@ router.route('/:id').delete((req, res)=>{
 router.route('/update/:id').post((req,res)=>{
     User.findById(req.params.id)
     .then(user=>{
-        user.userName = req.body.userName;
-        user.name = req.body.name
-        user.Password = req.body.Password;
-        user.lastName = req.body.lastName;
-        user.age = req.body.age;
-        user.origin = req.body.origin;
-        user.email = req.body.email;
-        user.telephone = req.body.telephone;
-        user.imgPic = req.body.imgPic;
-        user.travels = req.body.travels;
-        user.favorites = req.body.favorites;
+        user.userName = req.body.userName?req.body.userName:user.userName;
+        user.name = req.body.name?req.body.name:user.name;
+        user.Password = req.body.Password?req.body.Password:user.Password;
+        user.lastName = req.body.lastName?req.body.lastName:user.lastName;
+        user.age = req.body.age?req.body.age:user.age;
+        user.origin = req.body.origin?req.body.origin:user.origin;
+        user.email = req.body.email?req.body.email:user.email;
+        user.telephone = req.body.telephone?req.body.telephone:user.telephone;
+        user.imgPic = req.body.imgPic?req.body.imgPic:user.imgPic;
+        user.travels = req.body.travels?req.body.travels:user.travels;
+        user.favorites = req.body.favorites?req.body.favorites:user.favorites;
         
         user.save()
         .then (()=> res.json('user updated'))

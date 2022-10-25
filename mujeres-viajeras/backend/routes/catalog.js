@@ -59,19 +59,19 @@ router.route('/:id').delete((req, res)=>{
 router.route('/update/:id').post((req,res)=>{
     Catalog.findById(req.params.id)
     .then(travel=>{
-        travel.title = req.body.title;
-        travel.description = req.body.description;
-        travel.img = req.body.img;
-        travel.cost = req.body.cost;
-        travel.duration = req.body.duration;
-        travel.rating = req.body.rating
-        travel.availability = req.body.availability
-        travel.classification = req.body.classification
-        travel.destiny = req.body.destiny
-        travel.services = req.body.services
-        travel.hotel = req.body.hotel
-        travel.zone = req.body.zone
-        travel.comments = req.body.comments
+        travel.title = req.body.title?req.body.title:travel.title;
+        travel.description = req.body.description?req.body.description:
+        travel.img = req.body.img?req.body.img:travel.img;
+        travel.cost = req.body.cost?req.body.cost:travel.cost;
+        travel.duration = req.body.duration?req.body.duration:travel.duration;
+        travel.rating = req.body.rating?req.body.rating:travel.rating;
+        travel.availability = req.body.availability?req.body.availability:travel.availability;
+        travel.classification = req.body.classification?req.body.classification:travel.classification;
+        travel.destiny = req.body.destiny?req.body.destiny:travel.destiny;
+        travel.services = req.body.services?req.body.services:travel.services;
+        travel.hotel = req.body.hotel?req.body.hotel:travel.hotel;
+        travel.zone = req.body.zone? req.body.zone:travel.zone;
+        travel.comments = req.body.comments?req.body.comments:travel.comments;
 
         travel.save()
         .then (()=> res.json('catalog updated'))
