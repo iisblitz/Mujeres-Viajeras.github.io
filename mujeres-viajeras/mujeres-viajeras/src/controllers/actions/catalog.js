@@ -50,3 +50,17 @@ export function deleteTravel(){
         console.log(error)
     }
 }}
+
+export function updateTravel(){
+    return async function (dispatch){
+        try{
+            var info = await axios.update(`http://localhost:5000/catalog/${id}`)
+            return dispatch({
+                type: UPDATE_TRAVEL,
+                payload: info.data
+        })       
+            }catch(error){
+                console.log(error)
+            }
+        }
+    }
