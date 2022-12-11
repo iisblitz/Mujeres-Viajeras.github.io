@@ -1,41 +1,32 @@
-import L from "../img/logoimg.png"
+import logo from "../img/1.png"
+import {Link} from "react-router-dom"
 
 const NavBar = () => {
     return ( <div>
 
-<div className="contaner">
-    <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom align-items-center">
-        <a href="localhost:3000/home" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <div className="bi me-2" width="20" height="20"> <img src={L} width="50px" height="50px"/> 
-            <span className="fs-4">Mujeres Viajeras</span>
+<nav className="navbar navbar-expand-lg navbar-light text-capitalize justify-content-center m-0 p-0">    
+        <div className="col-3 p-0 m-auto">
+            <div className="row p-0 m-0 justify-content-center">
+                <div className="col d-flex justify-content-center">
+                <Link to='/Home'>
+                <div className="m-auto"><img src={logo} alt="mujeres viajeras"height="100px" /></div>
+                </Link>
+                </div>
             </div>
-        </a>
+        </div>  
+        <div className="col-3 p-0 m-auto">
+            <div role="group" aria-label="Basic Example" className="d-flex">
+                <Link to="/Home"><button type="button" className="btn btn-light m1"> Catalogo </button></Link>
+                <Link to="/Blog"><button type="button" className="btn btn-light m1"> Blog </button></Link>
+                <Link to="/Perfil"><button type="button" className="btn btn-light m1"> Perfil </button></Link>
+                <Link to="/Carrito"><button type="button" className="btn btn-light m1"> Carrito </button></Link>
+            </div>
+        </div>              
 
-        <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" >
-            <input type="search" className="form-control" placeholder="Busqueda..." aria-label="Search" />
-        </form>
 
 
-        <ul className="nav nav-pills align-items-center">
-            <li className="nav-item">
-                <a href="#" className="nav-link btn" aria-current="page">Home</a>
-            </li>
 
-            <li className="nav-item">
-                <a href="#" className="nav-link" aria-current="page">Blog</a>
-            </li>
-
-            <li className="nav-item">
-                <a href="#" className="nav-link" aria-current="page">Shop</a>
-            </li>
-
-            <li className="nav-item">
-                <a href="#" className="nav-link" aria-current="page">Profile</a>
-            </li>
-        </ul>
-    </header>
-
-</div>
+</nav>
 
     </div> );
 }
