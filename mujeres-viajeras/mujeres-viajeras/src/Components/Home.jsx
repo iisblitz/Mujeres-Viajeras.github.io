@@ -7,7 +7,7 @@ const Home = () => {
         
         
         
-        <Catalogo></Catalogo>
+        <Catalogo/>
             
         
         <Footer/>

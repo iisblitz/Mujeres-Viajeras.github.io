@@ -19,26 +19,19 @@ const LandingPage = () => {
         
         <NavBar/>
         
-        <div className='overlay h-100 w-100 bg-secondary opacity-50'>
-            
-        <div className='container h-100 text-center'>
         
-        
-        <div className='row h-100'>
-        <div className='col-10 align-self-center text-light'>
-            <img src={logo} alt="" />
-            <h1>Bienvenida! vamonos de viaje!</h1>
-        <h6>Mujeres viajeras es una empresa dedicada a ofrecer experiencias seguras de viaje a grupos de mujeres</h6>
+            <div className='container h-100 text-center'>
+                <div className='row h-100'>
+                    <div className='col-10 align-self-center text-light'>
+                    <img src={logo} alt="" />
+                    <h1>Bienvenida! vamonos de viaje!</h1>
+                    <h6>Mujeres viajeras es una empresa dedicada a ofrecer experiencias seguras de viaje a grupos de mujeres</h6>
+                    </div>
+                    <div className='col align-self-center text-warning'>placeholder </div>
+                </div>
+            </div>
         </div>
-        <div className='col align-self-center text-warning'> placeholder for login box
-        
-        </div>
-        </div>
-        </div>
-        
-        </div>
-        
-    </div>
+    
     )}
  
 export default LandingPage;
