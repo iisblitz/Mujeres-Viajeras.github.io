@@ -4,10 +4,11 @@ import Catalogo from "./Catalogo"
 
 const Home = () => {
     return ( <div>
-        <NavBar/>
         
-
-        <Catalogo/>        
+        
+        
+        <Catalogo></Catalogo>
+            
         
         <Footer/>
     </div> );

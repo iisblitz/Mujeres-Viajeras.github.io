@@ -1,10 +1,12 @@
 import NavBar from './NavBar';
 import background from '../img/header.png'
 import React from "react";
+import LoginBox from './LoginBox';
+import logo from "../img/1.png"
 
 var sectionStyle = {
     width: "100%",
-    height: "880px",
+    height: "1041px",
     backgroundImage: `url(${ background } )`,
     backgroundrepeat: "no-repeat",
     backgroundSize: "cover",
@@ -13,17 +15,28 @@ var sectionStyle = {
 
 const LandingPage = () => {
     return ( 
-    <div >
+    <div  style={sectionStyle}>
         
         <NavBar/>
         
-        <div style={ sectionStyle} className="d-flex justify-content-center">
-        <div className='align-items-center'>
-        <h1>Bienvenida a Mujeres viajeras!</h1>
+        <div className='overlay h-100 w-100 bg-secondary opacity-50'>
+            
+        <div className='container h-100 text-center'>
+        
+        
+        <div className='row h-100'>
+        <div className='col-10 align-self-center text-light'>
+            <img src={logo} alt="" />
+            <h1>Bienvenida! vamonos de viaje!</h1>
+        <h6>Mujeres viajeras es una empresa dedicada a ofrecer experiencias seguras de viaje a grupos de mujeres</h6>
+        </div>
+        <div className='col align-self-center text-warning'> placeholder for login box
+        
         </div>
         </div>
-
-
+        </div>
+        
+        </div>
         
     </div>
     )}
