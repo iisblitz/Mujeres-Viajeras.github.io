@@ -5,8 +5,8 @@ import LandingPage from "./Components/LandingPage";
 import Blog from "./Components/Blog";
 import Profile from "./Components/Profile";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import Catalogo from "./Components/Catalogo";
 import ShoppingCart from "./Components/ShoppingCart";
+import Register from "./Components/Register";
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
     <Route path="/blog" element={<Blog/>}></Route>
     <Route path="/Perfil"exact element={<Profile/>}> </Route>
     <Route path="/Carrito"exact element={<ShoppingCart/>}> </Route>
+    <Route path="/Register"exact element={<Register/>}> </Route>
     <Route path="/" element={<LandingPage/>}></Route>
     </Routes>
    </Router>

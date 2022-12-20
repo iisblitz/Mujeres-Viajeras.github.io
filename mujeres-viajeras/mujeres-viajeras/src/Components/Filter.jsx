@@ -1,6 +1,6 @@
 const Filters = () => {
     return ( 
-        <div className="bg-light text-black">
+        <div className="bg-dark text-black">
             <h1>Filtros de busqueda</h1>
             <p>Categorias</p>
             <select className="form-select 1">
