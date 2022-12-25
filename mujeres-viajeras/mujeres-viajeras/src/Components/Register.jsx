@@ -116,7 +116,7 @@ const Register = () => {
             ></input>    
             </div>
             
-            
+            cambio esto solo para subir un push en navidad, la verdad no tenía ganas de hacer nada de programación hoy...
             <br />
 
             <div className="mb-1">
