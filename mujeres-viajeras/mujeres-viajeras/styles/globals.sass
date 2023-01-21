@@ -4,14 +4,15 @@ ul
 header
   display: flex
   flex-direction: row
-  background-color: #000000AA
+  background-color: #000000
   position: fixed
   width: 100%
+  justify-content: space-around
 
   a
     text-decoration: none
     color: white
-    padding: 10px
+    padding: 15px
     margin: 5px
     border-radius: 10px
     background-color: #222222EE
@@ -50,10 +51,7 @@ footer
   text-align: center
 
 html
-  background-image: url('homepage.jpg')
-  background-size: contain
-  background-repeat: no-repeat
-  background-position: center
+  background-color: black
 
 .home_body
   color: white
@@ -62,6 +60,10 @@ html
   flex-direction: row
   align-items: center
   justify-content: center
+  background-image: url('homepage.jpg')
+  background-size: contain
+  background-repeat: no-repeat
+  background-position: center
 
 .welcome
   max-width: 50%
@@ -77,6 +79,8 @@ html
     border: none
     img
       border-radius: 14px
+      width: 12rem
+      height: 6rem
   h2
     text-decoration: none
     a
@@ -93,3 +97,19 @@ html
   height: 100vh
   text-align: center
   vertical-align: middle
+
+.about
+  background-image: url('aboutus.jpg')
+  background-size: cover
+  background-repeat: no-repeat
+  height: 80vh
+  color: black
+  padding-inline: 70px
+  justify-items: center
+  align-items: center
+
+.catalog
+  color: white
+
+  background-size: cover
+  background-repeat: no-repeat
